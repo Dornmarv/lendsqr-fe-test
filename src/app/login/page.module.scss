@@ -1,0 +1,213 @@
+@use '@/styles' as *;
+
+.container {
+  min-height: 100vh;
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.leftSection {
+  flex: 1;
+  background: $bg-white;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-4xl $spacing-3xl;
+
+  @include mobile {
+    padding: $spacing-lg;
+    flex: 0;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: $spacing-4xl;
+
+  svg {
+    height: 36px;
+    width: auto;
+
+    @include mobile {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  img {
+    height: 36px;
+    width: auto;
+  }
+
+  @include mobile {
+    margin-bottom: $spacing-lg;
+
+    img {
+      height: 20px;
+      width: auto;
+    }
+  }
+}
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-4xl;
+  background: $bg-white;
+  box-shadow: 0px 15px 90px 0px rgba(0, 0, 0, 0.03);
+
+  @include mobile {
+    padding: $spacing-lg;
+    box-shadow: none;
+    align-items: flex-start;
+  }
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 447px;
+}
+
+.title {
+  font-family: $font-family-avenir;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.subtitle {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  margin-bottom: $spacing-3xl;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-md $spacing-md;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background: $bg-white;
+  border: 2px solid rgba($secondary, 0.15);
+  border-radius: $radius-sm;
+  outline: none;
+  transition: border-color $transition-fast;
+  height: 50px;
+
+  &::placeholder {
+    color: $text-muted;
+    font-size: $font-size-base;
+    opacity: 0.6;
+  }
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  &.inputError {
+    border-color: $status-blacklisted;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.showPassword {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: $primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.error {
+  font-size: $font-size-sm;
+  color: $status-blacklisted;
+}
+
+.forgotPassword {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: $spacing-md;
+  background: $primary;
+  color: $text-white;
+  border: none;
+  border-radius: $radius-md;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  height: 48px;
+  transition: background $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

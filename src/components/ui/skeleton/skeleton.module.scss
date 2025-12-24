@@ -1,0 +1,32 @@
+@use '@/styles' as *;
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg,
+            rgba($secondary, 0.06) 25%,
+            rgba($secondary, 0.12) 50%,
+            rgba($secondary, 0.06) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite ease-in-out;
+}
+
+.text {
+    border-radius: $radius-sm;
+}
+
+.circular {
+    border-radius: $radius-full;
+}
+
+.rectangular {
+    border-radius: $radius-md;
+}

@@ -1,0 +1,86 @@
+@use '@/styles' as *;
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all $transition-fast;
+    border: 1px solid transparent;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+// Solid variants
+.primary {
+    background: $primary;
+    border-color: $primary;
+    color: $text-white;
+
+    &:hover:not(:disabled) {
+        background: $primary-hover;
+        border-color: $primary-hover;
+    }
+}
+
+.danger {
+    background: $status-blacklisted;
+    border-color: $status-blacklisted;
+    color: $text-white;
+
+    &:hover:not(:disabled) {
+        background: darken($status-blacklisted, 10%);
+        border-color: darken($status-blacklisted, 10%);
+    }
+}
+
+// Outline variants
+.outline-primary {
+    background: transparent;
+    border-color: $primary;
+    color: $primary;
+    border-radius: $radius-md;
+
+    &:hover:not(:disabled) {
+        background: $primary;
+        color: $text-white;
+    }
+}
+
+.outline-danger {
+    background: transparent;
+    border-color: $status-blacklisted;
+    color: $status-blacklisted;
+    font-size: $font-size-base;
+    height: 40px;
+    border-radius: $radius-md;
+
+    &:hover:not(:disabled) {
+        background: $status-blacklisted;
+        color: $text-white;
+    }
+}
+
+.outline-secondary {
+    background: transparent;
+    border-color: $text-secondary;
+    color: $text-secondary;
+    gap: $spacing-sm;
+
+    &:hover:not(:disabled) {
+        background: rgba($text-secondary, 0.05);
+    }
+}

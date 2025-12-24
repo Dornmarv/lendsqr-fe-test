@@ -1,0 +1,13 @@
+@use '@/styles' as *;
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+}
+
+.title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+}

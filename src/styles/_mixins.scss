@@ -1,0 +1,255 @@
+// SCSS Mixins
+
+@use 'variables' as *;
+
+// Flexbox Mixins
+@mixin flex($justify: flex-start, $align: stretch, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography Mixins
+@mixin heading-1 {
+  font-family: $font-family;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+}
+
+@mixin heading-2 {
+  font-family: $font-family;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+}
+
+@mixin heading-3 {
+  font-family: $font-family;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+  color: $text-primary;
+}
+
+@mixin body-text {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $text-secondary;
+}
+
+@mixin small-text {
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $text-secondary;
+}
+
+@mixin label-text {
+  font-family: $font-family;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $text-secondary;
+}
+
+// Card Mixin
+@mixin card {
+  background: $bg-white;
+  border: 1px solid $border-card-color;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+}
+
+// Button Mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all $transition-fast;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $primary;
+  color: $text-white;
+  border-radius: $radius-md;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+  }
+}
+
+@mixin button-outline {
+  @include button-base;
+  background: transparent;
+  color: $text-secondary;
+  border: 1px solid $border-input;
+  border-radius: $radius-md;
+
+  &:hover:not(:disabled) {
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+@mixin button-danger {
+  @include button-base;
+  background: transparent;
+  color: $status-blacklisted;
+  border: 1px solid $status-blacklisted;
+  border-radius: $radius-md;
+
+  &:hover:not(:disabled) {
+    background: $status-blacklisted;
+    color: $text-white;
+  }
+}
+
+// Input Mixins
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-md;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background: $bg-white;
+  border: 2px solid $border-input;
+  border-radius: $radius-md;
+  outline: none;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+// Status Badge Mixins
+@mixin status-badge($color, $bg-color) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color;
+  background: $bg-color;
+  border-radius: 100px;
+  text-transform: capitalize;
+}
+
+// Responsive Mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Scrollbar Mixin
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($secondary, 0.2);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba($secondary, 0.3);
+    }
+  }
+}
+
+// Truncate text
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Hide scrollbar but keep scroll functionality
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Focus visible for accessibility
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}

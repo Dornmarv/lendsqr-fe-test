@@ -48,8 +48,12 @@ export default function TableRow({
         return styles[`status${status}`];
     };
 
+    const handleRowClick = (): void => {
+        onViewDetails(user);
+    };
+
     return (
-        <tr>
+        <tr onClick={handleRowClick} className={styles.clickableRow}>
             <td className={styles.username}>{user.username}</td>
             <td>{user.organization}</td>
             <td>{user.email}</td>
@@ -64,7 +68,7 @@ export default function TableRow({
                     {user.status}
                 </span>
             </td>
-            <td className={styles.actionCell}>
+            <td className={styles.actionCell} onClick={(e) => e.stopPropagation()}>
                 <button
                     className={styles.moreBtn}
                     onClick={() => onMenuToggle(isMenuOpen ? null : user.id)}

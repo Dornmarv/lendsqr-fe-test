@@ -1,5 +1,14 @@
 @use '@/styles' as *;
 
+.clickableRow {
+    cursor: pointer;
+    transition: background $transition-fast;
+
+    &:hover {
+        background: rgba($bg-main, 0.5);
+    }
+}
+
 .username {
     text-transform: capitalize;
 }

@@ -1,0 +1,259 @@
+@use '@/styles' as *;
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: $z-sidebar - 1;
+
+  @include mobile {
+    display: block;
+  }
+
+  @include tablet {
+    display: block;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  width: $sidebar-width;
+  height: calc(100vh - #{$header-height});
+  background: $bg-sidebar;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+  z-index: $z-sidebar;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  @include custom-scrollbar;
+
+  @include mobile {
+    transform: translateX(-100%);
+    top: 0;
+    height: 100vh;
+    z-index: $z-header + 1;
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  @include tablet {
+    transform: translateX(-100%);
+    top: 0;
+    height: 100vh;
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: $spacing-md;
+  left: $spacing-md;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+  color: $text-secondary;
+  z-index: 10;
+  margin-bottom: $spacing-lg;
+  @include flex-center;
+  display: none;
+
+  @include mobile {
+    display: flex;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.nav {
+  flex: 1;
+  padding: $spacing-lg 0;
+
+  @include mobile {
+    padding-top: $spacing-4xl;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-sm;
+}
+
+.sectionTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  padding: $spacing-sm $spacing-lgx;
+  margin-bottom: $spacing-xs;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-base $spacing-lg;
+  color: $text-nav;
+  text-decoration: none;
+  font-size: $font-size-md;
+  font-weight: $font-weight-regular;
+  transition: all $transition-fast;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: $bg-sidebar-active;
+    color: $primary;
+  }
+
+  &.active {
+    background: $bg-sidebar-active;
+    color: $text-primary;
+    border-left-color: $primary;
+
+  }
+
+  &.hasDropdown {
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+
+    &:hover {
+      background: none;
+    }
+
+    .label {
+      flex: none;
+    }
+
+    .chevron {
+      margin-left: $spacing-sm;
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.label {
+  flex: 1;
+}
+
+.chevron {
+  opacity: 0.8;
+  transition: transform $transition-fast;
+}
+
+.footer {
+  padding: $spacing-lg;
+  border-top: 1px solid $border-color;
+  margin-top: auto;
+}
+
+.version {
+  display: block;
+  margin-top: $spacing-md;
+  font-size: $font-size-xs;
+  color: $text-secondary;
+}
+
+// Organization Dropdown
+.orgDropdownWrapper {
+  position: relative;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.orgDropdown {
+  position: absolute;
+  top: 0%;
+  left: $spacing-lg;
+  list-style: none;
+  margin: 0;
+  padding: $spacing-sm 0;
+  background: $bg-white;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-dropdown;
+  margin-top: $spacing-xs;
+  min-width: 200px;
+  z-index: $z-dropdown;
+}
+
+.orgDropdownHeader {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: $spacing-xs;
+}
+
+.orgOption {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  width: 100%;
+  padding: $spacing-xs $spacing-xs;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: $font-size-sm;
+  color: $text-primary;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba($primary, 0.05);
+  }
+
+  &.selected {
+    font-weight: $font-weight-medium;
+    gap: $spacing-xs;
+  }
+}
+
+.checkIcon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+}
+
+.orgLabel {
+  display: block;
+  padding: $spacing-xs $spacing-xs;
+  padding-left: calc($spacing-xs + 14px + $spacing-xs);
+  font-size: $font-size-sm;
+  color: $text-nav;
+  cursor: default;
+}

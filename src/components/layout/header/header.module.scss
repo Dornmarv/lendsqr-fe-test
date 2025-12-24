@@ -1,0 +1,222 @@
+@use '@/styles' as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
+    background: $bg-white;
+    box-shadow: 3px 0px 20px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    padding: 0 60px 0 $spacing-lg;
+    gap: $spacing-xl;
+    z-index: $z-header;
+
+    @include mobile {
+        height: 70px;
+        padding: 0 $spacing-lg;
+    }
+}
+
+.menuBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-sm;
+    @include flex-center;
+    display: none;
+
+    @include mobile {
+        display: flex;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.logo {
+    flex-shrink: 0;
+    width: 145px;
+
+    a {
+        display: block;
+        line-height: 0;
+    }
+
+    svg {
+        height: 30px;
+        width: auto;
+    }
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.search {
+    display: flex;
+    max-width: 400px;
+    flex: 1;
+    margin-left: calc(#{$sidebar-width} - 85px - #{$spacing-xl} - #{$spacing-lg});
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.searchInput {
+    flex: 1;
+    padding: $spacing-sm $spacing-md;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    color: $text-primary;
+    background: $bg-white;
+    border: 1px solid $border-input;
+    border-right: none;
+    border-radius: $radius-md 0 0 $radius-md;
+    outline: none;
+
+    &::placeholder {
+        color: $text-muted;
+        opacity: 0.7;
+    }
+
+    &:focus {
+        border-color: $primary;
+    }
+}
+
+.searchButton {
+    padding: 0 $spacing-md;
+    background: $primary;
+    border: none;
+    border-radius: 0 $radius-md $radius-md 0;
+    cursor: pointer;
+    transition: background $transition-fast;
+    @include flex-center;
+
+    &:hover {
+        background: $primary-hover;
+    }
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+    margin-left: auto;
+}
+
+.docsLink {
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    color: $secondary;
+    text-decoration: underline;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.notificationBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-sm;
+    @include flex-center;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.userName {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+// Profile Dropdown
+.profileWrapper {
+    position: relative;
+}
+
+.userMenu {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.dropdownIcon {
+    display: flex;
+    transition: transform $transition-fast;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.profileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-dropdown - 1;
+}
+
+.profileDropdown {
+    position: absolute;
+    top: calc(100% + $spacing-sm);
+    right: 0;
+    background: $bg-white;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    box-shadow: $shadow-dropdown;
+    min-width: 180px;
+    padding: $spacing-sm 0;
+    z-index: $z-dropdown;
+}
+
+.profileOption {
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+        background: rgba($primary, 0.05);
+        color: $primary;
+    }
+}
+
+.profileDivider {
+    height: 1px;
+    background: $border-color;
+    margin: $spacing-xs 0;
+}

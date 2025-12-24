@@ -1,0 +1,279 @@
+@use '@/styles' as *;
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: $spacing-4xl;
+    color: $text-secondary;
+
+    a {
+        display: inline-block;
+        margin-top: $spacing-md;
+        color: $primary;
+    }
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $text-secondary;
+    font-size: $font-size-md;
+    text-decoration: none;
+    width: fit-content;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.header {
+    @include flex-between;
+
+    @include mobile {
+        flex-direction: column;
+        gap: $spacing-md;
+        align-items: flex-start;
+    }
+}
+
+.title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+}
+
+.actions {
+    display: flex;
+    gap: $spacing-md;
+
+    @include mobile {
+        width: 100%;
+
+        button {
+            flex: 1;
+        }
+    }
+}
+
+
+
+// Summary Card
+.summaryCard {
+    @include card;
+    padding: $spacing-xl $spacing-lg 0;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    padding-bottom: $spacing-xl;
+
+    @include tablet {
+        flex-wrap: wrap;
+    }
+
+    @include mobile {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.avatar {
+    flex-shrink: 0;
+}
+
+.nameSection {
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.userName {
+    font-size: $font-size-lgx;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+    margin-bottom: $spacing-xs;
+}
+
+.userId {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    text-transform: uppercase;
+}
+
+.divider {
+    width: 1px;
+    height: 80px;
+    background: rgba($secondary, 0.1);
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.tierSection {
+    text-align: center;
+
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.tierLabel {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    text-transform: capitalize;
+    margin-bottom: $spacing-xs;
+}
+
+.stars {
+    display: flex;
+    gap: $spacing-xs;
+    justify-content: center;
+}
+
+.balanceSection {
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.balance {
+    font-size: $font-size-lgx;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+    margin-bottom: $spacing-sm;
+}
+
+.bankInfo {
+    font-size: $font-size-sm;
+    color: $text-primary;
+}
+
+// Tabs
+.tabs {
+    display: flex;
+    overflow-x: auto;
+    @include hide-scrollbar;
+
+    @include mobile {
+        gap: 0;
+    }
+}
+
+.tab {
+    flex-shrink: 0;
+    padding: $spacing-md $spacing-lg;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    color: $text-secondary;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all $transition-fast;
+
+    &:hover {
+        color: $primary;
+    }
+
+    &.active {
+        color: $primary;
+        border-bottom-color: $primary;
+    }
+
+    @include mobile {
+        padding: $spacing-sm $spacing-md;
+        font-size: $font-size-sm;
+    }
+}
+
+// Content Card
+.contentCard {
+    @include card;
+    padding: $spacing-xl $spacing-lg;
+}
+
+.section {
+    padding-bottom: $spacing-xl;
+    margin-bottom: $spacing-xl;
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+.sectionTitle {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+    margin-bottom: $spacing-lg;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-xl $spacing-lg;
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.infoGrid4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-xl $spacing-lg;
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.value {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    word-break: break-word;
+}
+
+.emptyTab {
+    text-align: center;
+    padding: $spacing-4xl $spacing-md;
+    color: $text-secondary;
+}

@@ -1,0 +1,55 @@
+@use '@/styles' as *;
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: $spacing-xl;
+    background: $bg-main;
+}
+
+.content {
+    text-align: center;
+    max-width: 400px;
+}
+
+.code {
+    font-size: 120px;
+    font-weight: $font-weight-bold;
+    color: $primary;
+    line-height: 1;
+    margin-bottom: $spacing-md;
+}
+
+.title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $secondary;
+    margin-bottom: $spacing-sm;
+}
+
+.message {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-xl;
+}
+
+.homeLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-sm $spacing-xl;
+    background: $primary;
+    border-radius: $radius-sm;
+    color: $text-white;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    transition: background $transition-fast;
+
+    &:hover {
+        background: $primary-hover;
+    }
+}

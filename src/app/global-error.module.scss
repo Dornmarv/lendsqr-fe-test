@@ -1,0 +1,109 @@
+@use '@/styles' as *;
+
+.errorContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: $spacing-xl;
+    background: $bg-main;
+}
+
+.errorContent {
+    text-align: center;
+    max-width: 500px;
+    padding: $spacing-xl;
+    background: $bg-white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-card;
+}
+
+.errorIcon {
+    font-size: 48px;
+    margin-bottom: $spacing-lg;
+}
+
+.errorTitle {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $secondary;
+    margin-bottom: $spacing-md;
+}
+
+.errorMessage {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+}
+
+.errorDetails {
+    text-align: left;
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    background: rgba($secondary, 0.05);
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+
+    summary {
+        cursor: pointer;
+        color: $text-secondary;
+        font-weight: $font-weight-medium;
+        margin-bottom: $spacing-sm;
+    }
+
+    pre {
+        margin: $spacing-sm 0;
+        padding: $spacing-sm;
+        background: rgba($secondary, 0.05);
+        border-radius: $radius-sm;
+        overflow-x: auto;
+        font-size: $font-size-xs;
+        color: $status-blacklisted;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+}
+
+.errorActions {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+}
+
+.retryButton {
+    padding: $spacing-sm $spacing-lg;
+    background: $primary;
+    border: none;
+    border-radius: $radius-sm;
+    color: $text-white;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: background $transition-fast;
+
+    &:hover {
+        background: $primary-hover;
+    }
+}
+
+.homeButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-sm $spacing-lg;
+    background: transparent;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+        border-color: $secondary;
+        color: $secondary;
+    }
+}

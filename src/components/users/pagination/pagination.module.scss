@@ -1,0 +1,134 @@
+@use '@/styles' as *;
+
+.pagination {
+    @include flex-between;
+    padding: 0 0;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.paginationInfo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-size-base;
+    color: $text-secondary;
+
+    select {
+        padding: $spacing-xs $spacing-md $spacing-xs $spacing-md;
+        border: none;
+        border-radius: $radius-sm;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        color: $secondary;
+        background-color: rgba($secondary, 0.1);
+        min-width: 80px;
+        height: 40px;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-align: left;
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23213F7D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 10px 6px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.paginationControls {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+}
+
+.pageBtn {
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($secondary, 0.1);
+    border: none;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover:not(:disabled) {
+        background: $primary;
+        color: $bg-white;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &.active {
+        background: $primary;
+        color: $bg-white;
+    }
+
+    &.dots {
+        background: transparent;
+        cursor: default;
+
+        &:hover {
+            background: transparent;
+            color: $text-secondary;
+        }
+    }
+}
+
+.pageBtnNumber {
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    color: rgba(84, 95, 125, 0.6);
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover:not(:disabled) {
+        background: $primary;
+        color: $bg-white;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &.active {
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+    }
+
+    &.dots {
+        background: transparent;
+        cursor: default;
+
+        &:hover {
+            background: transparent;
+            color: $text-secondary;
+        }
+    }
+}

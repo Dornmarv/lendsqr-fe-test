@@ -1,0 +1,164 @@
+@use '@/styles' as *;
+
+
+.username {
+    text-transform: capitalize;
+}
+
+.tableContainer {
+    @include card;
+    overflow-x: auto;
+    padding: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+
+    @include mobile {
+        min-width: 800px;
+
+        th:first-child,
+        td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background: $bg-white;
+        }
+    }
+
+    th,
+    td {
+        padding: $spacing-md $spacing-lg;
+        text-align: left;
+        border-bottom: 1px solid $border-color;
+    }
+
+    th {
+        background: $bg-white;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        color: $text-secondary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    td {
+        font-size: $font-size-base;
+        color: $text-secondary;
+    }
+
+    tbody tr:hover {
+        background: $bg-main;
+    }
+}
+
+.thButton {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-transform: uppercase;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    text-transform: capitalize;
+}
+
+.statusActive {
+    background: $status-active-bg;
+    color: $status-active;
+}
+
+.statusInactive {
+    background: $status-inactive-bg;
+    color: $status-inactive;
+}
+
+.statusPending {
+    background: $status-pending-bg;
+    color: $status-pending;
+}
+
+.statusBlacklisted {
+    background: $status-blacklisted-bg;
+    color: $status-blacklisted;
+}
+
+.actionCell {
+    position: relative;
+    width: 40px;
+    padding-left: 0 !important;
+    padding-right: $spacing-md !important;
+    text-align: center;
+}
+
+.moreBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-xs;
+    border-radius: $radius-sm;
+    transition: background $transition-fast;
+
+    &:hover {
+        background: $bg-main;
+    }
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: $bg-white;
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    box-shadow: $shadow-dropdown;
+    min-width: 180px;
+    z-index: 10;
+    overflow: hidden;
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        width: 100%;
+        padding: $spacing-md $spacing-lg;
+        background: none;
+        border: none;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+        cursor: pointer;
+        text-align: left;
+        transition: background $transition-fast;
+
+        &:hover {
+            background: $bg-main;
+        }
+    }
+}
+
+.loadingCell,
+.emptyCell {
+    text-align: center;
+    padding: $spacing-4xl;
+    color: $text-secondary;
+}

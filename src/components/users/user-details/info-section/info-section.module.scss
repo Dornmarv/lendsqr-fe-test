@@ -1,0 +1,69 @@
+@use '@/styles' as *;
+
+.section {
+    padding-bottom: $spacing-xl;
+    margin-bottom: $spacing-xl;
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+.sectionTitle {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $secondary;
+    margin-bottom: $spacing-lg;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-xl $spacing-lg;
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.infoGrid4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-xl $spacing-lg;
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.value {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    word-break: break-word;
+}

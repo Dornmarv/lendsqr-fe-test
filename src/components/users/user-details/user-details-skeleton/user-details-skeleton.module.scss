@@ -1,0 +1,56 @@
+@use '@/styles' as *;
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+}
+
+.header {
+    @include flex-between;
+
+    @include mobile {
+        flex-direction: column;
+        gap: $spacing-md;
+        align-items: flex-start;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: $spacing-md;
+
+    @include mobile {
+        width: 100%;
+
+        button {
+            flex: 1;
+        }
+    }
+}
+
+.summaryCard {
+    @include card;
+    padding: $spacing-xl $spacing-lg 0;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    padding-bottom: $spacing-xl;
+
+    @include tablet {
+        flex-wrap: wrap;
+    }
+
+    @include mobile {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.detailsCard {
+    @include card;
+    padding: $spacing-xl $spacing-lg;
+}
